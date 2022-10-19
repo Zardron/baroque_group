@@ -160,7 +160,7 @@ const DropDownList = styled("ul")`
   border: 1px solid #e4e4e4;
   border-radius: 10px;
   padding: 20px 30px 20px 30px;
-  z-index: 2;
+  z-index: 99;
   cursor: pointer;
   &:first-child {
     padding-top: 0.8em;

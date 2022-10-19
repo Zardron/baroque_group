@@ -247,6 +247,8 @@ cursor: pointer;
 const DropDownListContainer = styled("div")``;
 
 const DropDownList = styled("ul")`
+z-index: 99;
+
 position: absolute;
 background: #ffffff 0% 0% no-repeat padding-box;
 box-shadow: 3px 6px 14px #00000019;
@@ -265,6 +267,7 @@ text-align: left;
 font: normal normal normal 14px/24px Quicksand;
 letter-spacing: 0.7px;
 color: #000000;
+
 `;
 
 
@@ -380,6 +383,7 @@ const MoreFilter = () => {
                       fontSize="small"
                       style={{
                         color: "rgba(255,255,255,.3)",
+                        cursor: "pointer",
                       }}
                     />
                   </Label>
@@ -391,6 +395,7 @@ const MoreFilter = () => {
                       fontSize="small"
                       style={{
                         color: "rgba(255,255,255,.3)",
+                        cursor: "pointer",
                       }}
                     />
                   </Label>
@@ -476,7 +481,7 @@ const MoreFilter = () => {
                       }}
                     >
                       <Daily>
-                        Daily <XIcon fontSize="small"></XIcon>
+                        Daily <XIcon fontSize="small" style={{ cursor: "pointer"}}></XIcon>
                       </Daily>
                     </div>
                   </div>
@@ -490,7 +495,7 @@ const MoreFilter = () => {
                       }}
                     >
                       <Daily>
-                        Built <XIcon fontSize="small"></XIcon>
+                        Built <XIcon fontSize="small"  style={{ cursor: "pointer"}}></XIcon>
                       </Daily>
                     </div>
                   </div>
@@ -503,14 +508,14 @@ const MoreFilter = () => {
                       }}
                     >
                       <Daily>
-                        Indian Ocean <XIcon fontSize="small"></XIcon>
+                        Indian Ocean <XIcon fontSize="small"  style={{ cursor: "pointer"}}></XIcon>
                       </Daily>
                     </div>
                   </div>
                   <div>
                     <div style={{ padding: 8, marginLeft: "20px" }}>
                       <Daily>
-                        Built <XIcon fontSize="small"></XIcon>
+                        Built <XIcon fontSize="small"  style={{ cursor: "pointer"}}></XIcon>
                       </Daily>
                     </div>
                   </div>
@@ -523,28 +528,28 @@ const MoreFilter = () => {
                       }}
                     >
                       <Daily>
-                        Indian Ocean <XIcon fontSize="small"></XIcon>
+                        Indian Ocean <XIcon fontSize="small"  style={{ cursor: "pointer"}}></XIcon>
                       </Daily>
                     </div>
                   </div>
                   <div>
                     <div style={{ padding: 8, marginLeft: "20px" }}>
                       <Daily>
-                        Refit <XIcon fontSize="small"></XIcon>
+                        Refit <XIcon fontSize="small"  style={{ cursor: "pointer"}}></XIcon>
+                      </Daily>
+                    </div>
+                  </div>
+                  <div>
+                    <div style={{ padding: 8, marginLeft: "20px", cursor: "pointer", }}>
+                      <Daily>
+                        Built <XIcon fontSize="small"  style={{ cursor: "pointer"}}></XIcon>
                       </Daily>
                     </div>
                   </div>
                   <div>
                     <div style={{ padding: 8, marginLeft: "20px" }}>
                       <Daily>
-                        Built <XIcon fontSize="small"></XIcon>
-                      </Daily>
-                    </div>
-                  </div>
-                  <div>
-                    <div style={{ padding: 8, marginLeft: "20px" }}>
-                      <Daily>
-                        Daily <XIcon fontSize="small"></XIcon>
+                        Daily <XIcon fontSize="small"  style={{ cursor: "pointer"}}></XIcon>
                       </Daily>
                     </div>
                   </div>
