@@ -22,17 +22,28 @@ const Span = styled.span`
   color: #ffffff;
 `;
 
-const Search = styled.span`
+const Search = styled.input`
+width: 170px;
   text-align: left;
   font: normal normal normal 12px/24px Quicksand;
   letter-spacing: 0.7px;
-  color: #ffffff;
+  color: white;
   padding: 8px 60px 8px 20px;
-
+  background-color: #768a9a;
   border: 0.800000011920929px solid #e4e4e4;
   border-radius: 18px;
 
   cursor: pointer;
+
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+
+  :focus{
+    outline: none;
+  }
 `;
 
 const Subscribe = styled.span`
@@ -84,10 +95,19 @@ const Newsletter = () => {
             </span>
           </label>
         </div>
-       
-        <div style={{ fontFamily: "system-ui", paddingLeft: "10px" }}>
+
+        <div
+          style={{
+            fontFamily: "system-ui",
+            paddingLeft: "10px",
+            cursor: "pointer",
+          }}
+        >
           <label>
-            <Checkbox2 checkedA={checkedA} onChange={() => setCheckedA(!checkedA)} />
+            <Checkbox2
+              checkedA={checkedA}
+              onChange={() => setCheckedA(!checkedA)}
+            />
             <span
               style={{
                 marginLeft: 8,
@@ -100,9 +120,18 @@ const Newsletter = () => {
           </label>
         </div>
 
-        <div style={{ fontFamily: "system-ui", padding: "0 10px" }}>
+        <div
+          style={{
+            fontFamily: "system-ui",
+            padding: "0 10px",
+            cursor: "pointer",
+          }}
+        >
           <label>
-            <Checkbox3 checkedB={checkedB} onChange={() => setCheckedB(!checkedB)} />
+            <Checkbox3
+              checkedB={checkedB}
+              onChange={() => setCheckedB(!checkedB)}
+            />
             <span
               style={{
                 marginLeft: 8,
@@ -115,7 +144,7 @@ const Newsletter = () => {
           </label>
         </div>
 
-        <Search>Enter your email address</Search>
+        <Search type="text" placeholder="Enter your email address"></Search>
         <Subscribe>
           Subscribe <Image />
         </Subscribe>

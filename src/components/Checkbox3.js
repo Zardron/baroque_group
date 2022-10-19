@@ -42,7 +42,7 @@ const StyledCheckbox = styled.div`
 `;
 
 const Checkbox3 = ({ className, checkedB, ...props }) => (
-  <CheckboxContainer className={className}>
+  <CheckboxContainer  style={{cursor: "pointer" }}  className={className}>
     <HiddenCheckbox checked={checkedB} {...props} />
     <StyledCheckbox checked={checkedB}>
       <Icon viewBox="0 0 24 24">

@@ -8,7 +8,7 @@ const CheckboxContainer = styled.div`
 
 const Icon = styled.svg`
   fill: none;
-  stroke: #768a9a;
+  stroke: white;
   stroke-width: 3px;
 `;
 // Hide checkbox visually but remain accessible to screen readers.
@@ -31,7 +31,8 @@ const StyledCheckbox = styled.div`
   display: inline-block;
   width: 16px;
   height: 16px;
-  background: ${(props) => (props.checked ? "white" : "#768a9a")};
+  padding: 2px;
+  background: ${(props) => (props.checked ? "#768a9a" : "white")};
   border-radius: 3px;
   transition: all 150ms;
   border-radius: 15px;
@@ -41,8 +42,8 @@ const StyledCheckbox = styled.div`
   }
 `;
 
-const Checkbox2 = ({ className, checked, ...props }) => (
-  <CheckboxContainer  style={{cursor: "pointer" }}  className={className}>
+const FeaturedOnly = ({ className, checked, ...props }) => (
+  <CheckboxContainer className={className}>
     <HiddenCheckbox checked={checked} {...props} />
     <StyledCheckbox checked={checked}>
       <Icon viewBox="0 0 24 24">
@@ -52,4 +53,4 @@ const Checkbox2 = ({ className, checked, ...props }) => (
   </CheckboxContainer>
 );
 
-export default Checkbox2;
+export default FeaturedOnly;

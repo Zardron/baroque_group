@@ -42,7 +42,7 @@ const StyledCheckbox = styled.div`
 `;
 
 const FeaturedOnly = ({ className, checked, ...props }) => (
-  <CheckboxContainer className={className}>
+  <CheckboxContainer style={{cursor: "pointer" }}  className={className}>
     <HiddenCheckbox checked={checked} {...props} />
     <StyledCheckbox checked={checked}>
       <Icon viewBox="0 0 24 24">
