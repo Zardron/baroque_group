@@ -56,7 +56,7 @@ const Label = styled.p`
   font: normal normal medium 14px/24px Quicksand;
   letter-spacing: 0.7px;
   color: #000000;
-  font-weight: bold;
+  padding: 5px 0;
 `;
 
 const Value = styled.p`
@@ -69,6 +69,7 @@ const Value = styled.p`
 const DetailsContainer = styled.div`
   text-align: left;
   padding: 10px 0;
+  width: 145px;
 `;
 
 const Right = styled.div`
@@ -86,15 +87,14 @@ const Price = styled.p`
   font: normal normal normal 14px/24px Quicksand;
   letter-spacing: 0.7px;
   color: #000000;
-  font-weight: bold;
 `;
 
 const PriceDetails = styled.p`
   text-align: left;
-  font: normal normal normal 14px/24px Quicksand;
+  font: normal normal medium 14px/24px Quicksand;
   letter-spacing: 0.7px;
   color: #000000;
-  font-weight: bold;
+  width: 145px;
 `;
 
 const PriceDetailsContainer = styled.div`
@@ -121,6 +121,7 @@ const MoreFilterLabel = styled.p`
   color: #000000;
   display: flex;
   cursor: pointer;
+  padding: 0 15px;
 `;
 
 const Inquiry = styled.p`
@@ -128,7 +129,7 @@ const Inquiry = styled.p`
 
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #768a9a;
-  border-radius: 18px;
+  border-radius: 19px;
   color: white;
 
   :hover {
@@ -150,7 +151,7 @@ const HeartIcon = styled(FavoriteBorderOutlinedIcon)`
 `;
 
 const Separator = styled.span`
-  padding: 0 20px;
+  padding: 0 5px;
   color: rgba(128, 128, 128, 0.3);
 `;
 
@@ -188,7 +189,8 @@ const FeaturedLogo = styled.img`
 
 const Main = () => {
   return (
-    <Container>
+    <div className="container">
+      <Container>
       <Data>
         <ImageContainer>
           <FeaturedLogo src="https://res.cloudinary.com/dmbpo49ak/image/upload/v1666091143/Baroque/Group_88030_l8koiv.png" />
@@ -233,7 +235,7 @@ const Main = () => {
           <Left>
             <Inquiry>
               <MoreFilterLabel>
-                <Add />
+                <span style={{paddingRight: "5px"}}>+</span>
                 Add to Inquiry List
               </MoreFilterLabel>
             </Inquiry>
@@ -292,7 +294,7 @@ const Main = () => {
           <Left>
             <Inquiry>
               <MoreFilterLabel>
-                <Add />
+                <span style={{paddingRight: "5px"}}>+</span>
                 Add to Inquiry List
               </MoreFilterLabel>
             </Inquiry>
@@ -351,7 +353,7 @@ const Main = () => {
           <Left>
             <Inquiry>
               <MoreFilterLabel>
-                <Add />
+                <span style={{paddingRight: "5px"}}>+</span>
                 Add to Inquiry List
               </MoreFilterLabel>
             </Inquiry>
@@ -415,7 +417,7 @@ const Main = () => {
           <Left>
             <Inquiry>
               <MoreFilterLabel>
-                <Add />
+                <span style={{paddingRight: "5px"}}>+</span>
                 Add to Inquiry List
               </MoreFilterLabel>
             </Inquiry>
@@ -474,7 +476,7 @@ const Main = () => {
           <Left>
             <Inquiry>
               <MoreFilterLabel>
-                <Add />
+                <span style={{paddingRight: "5px"}}>+</span>
                 Add to Inquiry List
               </MoreFilterLabel>
             </Inquiry>
@@ -533,7 +535,7 @@ const Main = () => {
           <Left>
             <Inquiry>
               <MoreFilterLabel>
-                <Add />
+                <span style={{paddingRight: "5px"}}>+</span>
                 Add to Inquiry List
               </MoreFilterLabel>
             </Inquiry>
@@ -597,7 +599,7 @@ const Main = () => {
           <Left>
             <Inquiry>
               <MoreFilterLabel>
-                <Add />
+                <span style={{paddingRight: "5px"}}>+</span>
                 Add to Inquiry List
               </MoreFilterLabel>
             </Inquiry>
@@ -656,7 +658,7 @@ const Main = () => {
           <Left>
             <Inquiry>
               <MoreFilterLabel>
-                <Add />
+                <span style={{paddingRight: "5px"}}>+</span>
                 Add to Inquiry List
               </MoreFilterLabel>
             </Inquiry>
@@ -715,7 +717,7 @@ const Main = () => {
           <Left>
             <Inquiry>
               <MoreFilterLabel>
-                <Add />
+                <span style={{paddingRight: "5px"}}>+</span>
                 Add to Inquiry List
               </MoreFilterLabel>
             </Inquiry>
@@ -733,7 +735,8 @@ const Main = () => {
           </RightIcons>
         </BottomContainer>
       </Data>
-    </Container>
+      </Container>
+    </div>
   );
 };
 

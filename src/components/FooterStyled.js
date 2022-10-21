@@ -12,7 +12,7 @@ export const Left = styled.div`
 `;
 
 export const SocialLinks = styled.div`
-  flex: 1;
+  flex: .8;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,8 +52,8 @@ export const SocialIcon = styled.img`
 `;
 
 export const Center = styled.div`
-  flex: 2;
-  padding: 20px;
+  flex: 2.4;
+  padding: 20px 20px 20px 40px;
 `;
 
 export const Title = styled.h3`
@@ -78,7 +78,7 @@ export const ListItem = styled.li`
 `;
 
 export const Right = styled.div`
-  flex: 1;
+  flex: .8;
   padding: 20px;
 `;
 

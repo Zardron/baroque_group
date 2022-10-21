@@ -8,7 +8,6 @@ const Container = styled.div`
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
- 
 `;
 const Left = styled.div`
   display: flex;
@@ -34,10 +33,11 @@ export const InitialLabel = styled.span`
   letter-spacing: 0.65px;
   color: #000000;
   opacity: 1;
-  width: 30px;
+  width: 35px;
+  height: 35px;
   background: #ffffff00 0% 0% no-repeat padding-box;
   border: 0.800000011920929px solid #e4e4e4;
-  border-radius: 18px;
+  border-radius: 50%;
   margin-right: 10px;
 `;
 
@@ -53,10 +53,9 @@ export const Counter = styled.span`
   height: 20px;
   background: #de751b 0% 0% no-repeat padding-box;
   border: 0.800000011920929px solid #e4e4e4;
-  border-radius: 18px;
+  border-radius: 19px;
   margin-right: 10px;
   cursor: pointer;
-
 `;
 
 export const InquiryList = styled.span`
@@ -70,8 +69,8 @@ export const InquiryList = styled.span`
   width: auto;
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #e4e4e4;
-  padding: 0 10px;
-  border-radius: 16px;
+  padding: 5px 10px 5px 5px;
+  border-radius: 19px;
   margin-right: 20px;
   cursor: pointer;
 `;
@@ -119,7 +118,7 @@ const YachtDropdownContent = styled.div`
   min-width: 230px;
   box-shadow: 3px 6px 14px #00000019;
   padding: 12px 16px;
-  z-index: 2;
+  z-index: 999;
   border: 1px solid #e4e4e4;
   border-radius: 10px;
 `;
@@ -131,10 +130,14 @@ const DropDownLabel = styled.a`
   letter-spacing: 0.7px;
   color: #000000;
   opacity: 1;
+  padding-bottom: 10px;
+  cursor: pointer;
+  &:hover {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+  }
 `;
 
 const YachtDropdown = styled.div`
-  width: 130px;
   flex: 1;
   display: flex;
   position: relative;
@@ -161,7 +164,7 @@ const UserDropdownContent = styled.div`
   min-width: 160px;
   box-shadow: 3px 6px 14px #00000019;
   padding: 12px 16px;
-  z-index: 2;
+  z-index: 9999;
   border: 1px solid #e4e4e4;
   border-radius: 10px;
   right: 0;
@@ -190,195 +193,181 @@ const UserDropdown = styled.div`
 
 const Navbar = () => {
   return (
-    <Container>
-      <Wrapper>
-        <Left>
-          <Logo src="https://res.cloudinary.com/dmbpo49ak/image/upload/v1666091146/Baroque/Mask_Group_9_jedrsf.png" />
-          <MenuDropdown>
-            <FirstSeparator>|</FirstSeparator>
-            <MenuIcon style={{ color: "#6e6868" }} />
-            <MenuItem>Menu</MenuItem>
-            <SecondSeparator>|</SecondSeparator>
-            <MenuDropdownContent>
-              <ul
-                style={{
-                  listStyle: "none",
-                  padding: "0px",
-                  lineHeight: "35px",
-                }}
-              >
-                <li>
-                  <DropDownLabel
-                    style={{
-                      borderBottom: "1px solid rgba(128, 128, 128, 0.3)",
-                    }}
-                  >
-                    Home
-                  </DropDownLabel>
+    <div className="container">
+      <Container>
+        <Wrapper>
+          <Left>
+            <Logo src="https://res.cloudinary.com/dmbpo49ak/image/upload/v1666091146/Baroque/Mask_Group_9_jedrsf.png" />
+            <MenuDropdown>
+              <FirstSeparator>|</FirstSeparator>
+              <MenuIcon style={{ color: "#6e6868" }} />
+              <MenuItem>Menu</MenuItem>
+              <SecondSeparator>|</SecondSeparator>
+              <MenuDropdownContent>
+                <ul
+                  style={{
+                    listStyle: "none",
+                    padding: "0px",
+                    lineHeight: "35px",
+                  }}
+                >
                   <li>
-                    <DropDownLabel>About Us</DropDownLabel>
+                    <DropDownLabel
+                    >
+                      Home
+                    </DropDownLabel>
+                    <li>
+                      <DropDownLabel>About Us</DropDownLabel>
+                    </li>
+                    <li>
+                      <DropDownLabel>Why Baroque Yachts</DropDownLabel>
+                    </li>
+                    <li>
+                      <DropDownLabel>Contact</DropDownLabel>
+                    </li>
+                    <li>
+                      <DropDownLabel>Legal Notice</DropDownLabel>
+                    </li>
                   </li>
-                  <li>
-                    <DropDownLabel>Why Baroque Yachts</DropDownLabel>
-                  </li>
-                  <li>
-                    <DropDownLabel>Contact</DropDownLabel>
-                  </li>
-                  <li>
-                    <DropDownLabel>Legal Notice</DropDownLabel>
-                  </li>
-                </li>
-              </ul>
-            </MenuDropdownContent>
-          </MenuDropdown>
+                </ul>
+              </MenuDropdownContent>
+            </MenuDropdown>
 
-          <YachtDropdown>
-            <MenuItem>Yacht Charter</MenuItem>
-            <YachtDropdownContent>
-              <ul
-                style={{
-                  listStyle: "none",
-                  padding: "0px",
-                  lineHeight: "35px",
-                }}
-              >
-                <li>
-                  <DropDownLabel
-                    style={{
-                      borderBottom: "1px solid rgba(128, 128, 128, 0.3)",
-                    }}
-                  >
-                    Day Charter Yachts
-                  </DropDownLabel>
-                </li>
-                <li>
-                  <DropDownLabel>Weekly Charter Yachts</DropDownLabel>
+            <YachtDropdown>
+              <MenuItem>Yacht Charter</MenuItem>
+              <YachtDropdownContent>
+                <ul
+                  style={{
+                    listStyle: "none",
+                    padding: "0px",
+                    lineHeight: "35px",
+                  }}
+                >
                   <li>
-                    <DropDownLabel>Regions & Destinations</DropDownLabel>
+                    <DropDownLabel>Day Charter Yachts</DropDownLabel>
                   </li>
                   <li>
-                    <DropDownLabel>Featured Itineraries</DropDownLabel>
+                    <DropDownLabel>Weekly Charter Yachts</DropDownLabel>
+                    <li>
+                      <DropDownLabel>Regions & Destinations</DropDownLabel>
+                    </li>
+                    <li>
+                      <DropDownLabel>Featured Itineraries</DropDownLabel>
+                    </li>
+                    <li>
+                      <DropDownLabel>Type of charter</DropDownLabel>
+                    </li>
+                    <li>
+                      <DropDownLabel>Corporate Charter</DropDownLabel>
+                    </li>
+                    <li>
+                      <DropDownLabel>
+                        Private Event and Experience
+                      </DropDownLabel>
+                    </li>
+                    <li>
+                      <DropDownLabel>Global Event Calender</DropDownLabel>
+                    </li>
                   </li>
-                  <li>
-                    <DropDownLabel>Type of charter</DropDownLabel>
-                  </li>
-                  <li>
-                    <DropDownLabel>Corporate Charter</DropDownLabel>
-                  </li>
-                  <li>
-                    <DropDownLabel>Private Event and Experience</DropDownLabel>
-                  </li>
-                  <li>
-                    <DropDownLabel>Global Event Calender</DropDownLabel>
-                  </li>
-                </li>
-              </ul>
-            </YachtDropdownContent>
-          </YachtDropdown>
+                </ul>
+              </YachtDropdownContent>
+            </YachtDropdown>
 
-          <YachtDropdown>
-            <MenuItem>Yacht for Sale</MenuItem>
-            <YachtDropdownContent>
-              <ul
-                style={{
-                  listStyle: "none",
-                  padding: "0px",
-                  lineHeight: "35px",
-                }}
-              >
-                <li>
-                  <DropDownLabel
-                    style={{
-                      borderBottom: "1px solid rgba(128, 128, 128, 0.3)",
-                    }}
-                  >
-                    Yacht for Sale
-                  </DropDownLabel>
-                </li>
-                <li>
-                  <DropDownLabel>Purchasing a Yacht</DropDownLabel>
-                </li>
-              </ul>
-            </YachtDropdownContent>
-          </YachtDropdown>
+            <YachtDropdown>
+              <MenuItem>Yacht for Sale</MenuItem>
+              <YachtDropdownContent>
+                <ul
+                  style={{
+                    listStyle: "none",
+                    padding: "0px",
+                    lineHeight: "35px",
+                  }}
+                >
+                  <li>
+                    <DropDownLabel
+                    >
+                      Yacht for Sale
+                    </DropDownLabel>
+                  </li>
+                  <li>
+                    <DropDownLabel>Purchasing a Yacht</DropDownLabel>
+                  </li>
+                </ul>
+              </YachtDropdownContent>
+            </YachtDropdown>
 
-          <YachtDropdown>
-            <MenuItem>Yacht Management</MenuItem>
-            <YachtDropdownContent>
-              <ul
-                style={{
-                  listStyle: "none",
-                  padding: "0px",
-                  lineHeight: "35px",
-                }}
-              >
-                <li>
-                  <DropDownLabel
-                    style={{
-                      borderBottom: "1px solid rgba(128, 128, 128, 0.3)",
-                    }}
-                  >
-                    Management and maintenance
-                  </DropDownLabel>
-                </li>
-                <li>
-                  <DropDownLabel>Charter management</DropDownLabel>
-                </li>
-                <li>
-                  <DropDownLabel>Yacht building</DropDownLabel>
-                </li>
-                <li>
-                  <DropDownLabel>Refit and restoration</DropDownLabel>
-                </li>
-              </ul>
-            </YachtDropdownContent>
-          </YachtDropdown>
-        </Left>
-        <Right>
-          <InquiryList>
-            <Counter>3</Counter> Inquiry List
-          </InquiryList>{" "}
-          <UserDropdown>
-            <InitialLabel>Z</InitialLabel>{" "}
-            <MenuItem>Mr. Zardron Angelo</MenuItem>{" "}
-            <KeyboardArrowDownIcon
-              style={{ color: "#6e6868", paddingLeft: "20px" }}
-            />
-            <UserDropdownContent>
-              <ul
-                style={{
-                  listStyle: "none",
-                  padding: "0px",
-                  lineHeight: "35px",
-                }}
-              >
-                <li>
-                  <DropDownLabel
-                    style={{
-                      borderBottom: "1px solid rgba(128, 128, 128, 0.3)",
-                    }}
-                  >
-                    Trips
-                  </DropDownLabel>
-                </li>
-                <li>
-                  <UserDropDownLabel>Wishlist</UserDropDownLabel>
-                </li>
-                <li>
-                  <UserDropDownLabel>Charter requests</UserDropDownLabel>
-                </li>
-                <li>
-                  <UserDropDownLabel>Account</UserDropDownLabel>
-                </li>
-                <li>
-                  <UserDropDownLabel>Logout</UserDropDownLabel>
-                </li>
-              </ul>
-            </UserDropdownContent>
-          </UserDropdown>
-        </Right>
-      </Wrapper>
-    </Container>
+            <YachtDropdown>
+              <MenuItem>Yacht Management</MenuItem>
+              <YachtDropdownContent>
+                <ul
+                  style={{
+                    listStyle: "none",
+                    padding: "0px",
+                    lineHeight: "35px",
+                  }}
+                >
+                  <li>
+                    <DropDownLabel
+                    >
+                      Management and maintenance
+                    </DropDownLabel>
+                  </li>
+                  <li>
+                    <DropDownLabel>Charter management</DropDownLabel>
+                  </li>
+                  <li>
+                    <DropDownLabel>Yacht building</DropDownLabel>
+                  </li>
+                  <li>
+                    <DropDownLabel>Refit and restoration</DropDownLabel>
+                  </li>
+                </ul>
+              </YachtDropdownContent>
+            </YachtDropdown>
+          </Left>
+          <Right>
+            <InquiryList>
+              <Counter>3</Counter> Inquiry List
+            </InquiryList>{" "}
+            <UserDropdown>
+              <InitialLabel>Z</InitialLabel>{" "}
+              <MenuItem>Mr. Zardron Angelo</MenuItem>{" "}
+              <KeyboardArrowDownIcon
+                style={{ color: "#6e6868", paddingLeft: "20px" }}
+              />
+              <UserDropdownContent>
+                <ul
+                  style={{
+                    listStyle: "none",
+                    padding: "0px",
+                    lineHeight: "35px",
+                  }}
+                >
+                  <li>
+                    <DropDownLabel
+                    >
+                      Trips
+                    </DropDownLabel>
+                  </li>
+                  <li>
+                    <UserDropDownLabel>Wishlist</UserDropDownLabel>
+                  </li>
+                  <li>
+                    <UserDropDownLabel>Charter requests</UserDropDownLabel>
+                  </li>
+                  <li>
+                    <UserDropDownLabel>Account</UserDropDownLabel>
+                  </li>
+                  <li>
+                    <UserDropDownLabel>Logout</UserDropDownLabel>
+                  </li>
+                </ul>
+              </UserDropdownContent>
+            </UserDropdown>
+          </Right>
+        </Wrapper>
+      </Container>
+    </div>
   );
 };
 

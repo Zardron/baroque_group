@@ -1,73 +1,45 @@
 import React, { useState } from "react";
+import Slider from "react-slick";
+
+import LeftArrow from "../assets/left-arrow.svg";
+import RightArrow from "../assets/right-arrow.svg";
 import styled from "styled-components";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
 import CloseIcon from "@mui/icons-material/Close";
 import AdditionalFilter from "./AdditionalFIlter";
-import Carousel from "./Carousel";
 
-const Container = styled.div`
+const YachtNameContainers = styled.div`
+  flex: 1;
   display: flex;
-  align-items: center;
-  align-items: flex-start;
-  border-top: 1px solid rgba(128, 128, 128, 0.3);
-  padding: 0 10px;
+  flex-flow: column;
+  justify-content: flex-start;
+  padding-top: 5px;
 `;
 
-const DefaultContainer = styled.div`
+const SortContainers = styled.div`
+  flex: 0.7;
   display: flex;
   align-items: center;
-  justify-content: center;
-  border-top: 1px solid rgba(128, 128, 128, 0.3);
-  margin: 0 10px;
+  justify-content: flex-start;
+  padding-top: 20px;
 `;
 
-const FilterContainer = styled.div`
-  display: flex;
-  flex: 2.5;
-  align-items: center;
-  align-items: flex-start;
-`;
-
-const CarouselContainer = styled.div`
-  display: flex;
-  flex: 0.5;
-  align-items: center;
-  align-items: flex-start;
-  padding-top:10px;
-`;
-
-const YachtNameContainer = styled.div`
+const MoreFilterContainers = styled.div`
   flex: 1;
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
 `;
 
-const SortContainer = styled.div`
-  flex: 0.3;
-  display: flex;
-  flex-flow: column;
-  justify-content: flex-start;
-`;
-
-const MoreFilterContainer = styled.div`
-  flex: 0.5;
-  display: flex;
-  flex-flow: column;
-  justify-content: flex-start;
-`;
-
-const SearchContainer = styled.div`
-  flex: 0.5;
+const SearchContainers = styled.div`
+  flex: 1.3;
   display: flex;
   flex-direction: column;
   padding: 0 10px;
 `;
 
-export const Label = styled.p`
+export const Labels = styled.p`
   padding: 8px 0;
-  font: normal normal normal 12px/24px Quicksand;
+  font: normal normal normal 14px/24px Quicksand;
   letter-spacing: 0.7px;
   color: white;
   display: flex;
@@ -77,7 +49,7 @@ export const Label = styled.p`
   align-items: center;
 `;
 
-const Separator = styled.span`
+const Separators = styled.span`
   padding: 0 10px;
   color: white;
   &:hover {
@@ -85,14 +57,14 @@ const Separator = styled.span`
   }
 `;
 
-const DateValueContainer = styled.div`
+const DateValueContainers = styled.div`
   margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-const SearchValueContainer = styled.div`
+const SearchValueContainers = styled.div`
   margin-top: 1rem;
   flex: 1;
   display: flex;
@@ -100,23 +72,23 @@ const SearchValueContainer = styled.div`
   justify-content: space-between;
   padding: 0 10px;
   border: 0.800000011920929px solid #e4e4e4;
-  border-radius: 18px;
+  border-radius: 19px;
   background-color: #0a3050;
 
   &:hover {
     background-color: white;
   }
 
-  &:hover ${Label} {
+  &:hover ${Labels} {
     color: black;
   }
 
-  &:hover ${Separator} {
+  &:hover ${Separators} {
     color: black;
   }
 `;
 
-const Value = styled.div`
+const Values = styled.div`
   margin-top: 1rem;
   flex: 1;
   display: flex;
@@ -125,11 +97,11 @@ const Value = styled.div`
   padding: 0 10px;
   margin: 16px 10px;
   border: 0.800000011920929px solid #e4e4e4;
-  border-radius: 18px;
+  border-radius: 20px;
   background-color: #768a9a;
 `;
 
-const Null = styled.div`
+const Nulls = styled.div`
   margin-top: 1rem;
   flex: 1;
   display: flex;
@@ -138,50 +110,34 @@ const Null = styled.div`
   padding: 0 10px;
   margin: 16px 10px;
   border: none;
-  border-radius: 18px;
+  border-radius: 19px;
   background-color: none;
 `;
 
-const AddOnContainer = styled.div`
+const AddOnContainers = styled.div`
   flex: 1.5;
   display: grid;
   grid-template-columns: auto auto auto auto;
 `;
 
-const ExtraContainer = styled.div`
-  flex: 0.5;
-  display: flex;
-  justify-content: flex-start;
-  padding-left: 10px;
-  padding-top: 25px;
-`;
-
-const ExtraContainers = styled.div`
-  flex: 0.5;
-  display: flex;
-  justify-content: flex-start;
-  padding-left: 10px;
-`;
-
-export const StyledLabel = styled.label`
+export const StyledLabels = styled.label`
   margin-bottom: 1rem;
 `;
 
-export const MoreFilterLabel = styled.p`
-  padding: 8px 20px;
-  font: normal normal normal 12px/24px Quicksand;
+export const MoreFilterLabels = styled.p`
+  padding: 8px 10px;
+  font: normal normal normal 14px/24px Quicksand;
   letter-spacing: 0.7px;
   display: flex;
   border: 0.800000011920929px solid #e4e4e4;
-  border-radius: 18px;
+  border-radius: 19px;
   display: flex;
-  justify-content: space-between;
   font-weight: 500;
-  width: 100%;
+  width: auto;
   cursor: pointer;
 `;
 
-export const Labels = styled.p`
+export const Labelss = styled.p`
   padding: 8px 0;
   font: normal normal normal 14px/24px Quicksand;
   letter-spacing: 0.7px;
@@ -190,14 +146,14 @@ export const Labels = styled.p`
   padding-top: 50px;
 `;
 
-export const Daily = styled.p`
+export const Dailys = styled.p`
   padding: 8px 0;
-  font: normal normal normal 12px/24px Quicksand;
+  font: normal normal normal 14px/24px Quicksand;
   letter-spacing: 0.7px;
   color: #ffffff;
   display: flex;
   border: 0.800000011920929px solid #e4e4e4;
-  border-radius: 18px;
+  border-radius: 19px;
   background-color: #768a9a;
   padding-left: 10px;
   display: flex;
@@ -205,363 +161,438 @@ export const Daily = styled.p`
   font-weight: 500;
 `;
 
-export const XIcon = styled(CloseIcon)`
-  margin-right: 5px;
-  color: #e4e4e4;
-  opacity: 0.3;
-  display: flex;
-  font-size: 8px;
-  padding-top: 2px;
+const DropDownContainers = styled("div")`
+  width: 90%;
 `;
 
+const DropDownHeaders = styled("div")`
+  max-width: 90%;
+  height: 100%;
+  padding: 0.5rem;
+  margin-bottom: 5px;
+  border: 0.800000011920929px solid #e4e4e4;
+  border-radius: 19px;
+  opacity: 1;
 
-const DropDownContainer = styled("div")`
-width: 90%;
+  text-align: left;
+  font: normal normal normal 14px/24px Quicksand;
+  letter-spacing: 0.7px;
+  color: #000000;
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' width='16' height='16' xmlns='http://www.w3.org/2000/svg'><g><path d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z' fill='gray'/></g></svg>")
+    no-repeat;
+  background-position: right 5px top 50%;
+
+  cursor: pointer;
 `;
 
-const DropDownHeader = styled("div")`
-max-width: 90%;
-height: 100%;
-padding: 0.5rem;
-margin-bottom: 5px;
-border: 0.800000011920929px solid #e4e4e4;
-border-radius: 18px;
-opacity: 1;
-margin-top: 1rem;
+const DropDownListContainers = styled("div")``;
 
-text-align: left;
-font: normal normal normal 14px/24px Quicksand;
-letter-spacing: 0.7px;
-color: #000000;
+const DropDownLists = styled("ul")`
+  z-index: 99;
 
--moz-appearance: none;
--webkit-appearance: none;
-appearance: none;
-background: url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' width='16' height='16' xmlns='http://www.w3.org/2000/svg'><g><path d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z' fill='gray'/></g></svg>")
-  no-repeat;
-background-position: right 5px top 50%;
-
-cursor: pointer;
+  position: absolute;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 3px 6px 14px #00000019;
+  border: 1px solid #e4e4e4;
+  border-radius: 10px;
+  padding: 20px 50px 20px 20px;
+  &:first-child {
+    padding-top: 0.8em;
+  }
 `;
 
-const DropDownListContainer = styled("div")``;
+const ListItems = styled("li")`
+  list-style: none;
+  padding: 7px 0;
+  text-align: left;
+  font: normal normal normal 14px/24px Quicksand;
+  letter-spacing: 0.7px;
+  color: #000000;
 
-const DropDownList = styled("ul")`
-z-index: 99;
-
-position: absolute;
-background: #ffffff 0% 0% no-repeat padding-box;
-box-shadow: 3px 6px 14px #00000019;
-border: 1px solid #e4e4e4;
-border-radius: 10px;
-padding: 20px 50px 20px 20px;
-&:first-child {
-  padding-top: 0.8em;
-}
+  &:hover {
+    font: normal normal 600 14px/24px Quicksand;
+  }
 `;
 
-const ListItem = styled("li")`
-list-style: none;
-padding: 5px 0;
-text-align: left;
-font: normal normal normal 14px/24px Quicksand;
-letter-spacing: 0.7px;
-color: #000000;
+const Spans = styled("span")`
+  list-style: none;
+  text-align: left;
+  font: normal normal normal 14px/24px Quicksand;
+  letter-spacing: 0.7px;
+  color: #000000;
+  cursor: pointer;
 
+  &:hover {
+    padding-bottom: 7px;
+    font: normal normal 600 14px/24px Quicksand;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+  }
 `;
 
-
-const MoreFilter = () => {
+const MoreFilter = ({ handleLocation }) => {
   const [filter, setFilter] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const toggling = () => setIsOpen(!isOpen);
-
-  console.log(filter);
+  const [isOpens, setIsOpens] = useState(false);
+  const toggling = () => setIsOpens(!isOpens);
 
   const openFilter = () => {
     setFilter(!filter);
   };
 
+  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+    <img src={LeftArrow} alt="prevArrow" {...props} />
+  );
 
+  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+    <img src={RightArrow} alt="nextArrow" {...props} />
+  );
+  const settings = {
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    variableWidth: true,
+    prevArrow: <SlickArrowLeft />,
+    nextArrow: <SlickArrowRight />,
+  };
   return (
     <>
       {filter ? <AdditionalFilter props={filter} /> : ""}
 
       {filter ? (
         <>
-          <Container>
-            <SortContainer>
-              <DropDownContainer>
-                <DropDownHeader onClick={toggling}>Sort</DropDownHeader>
-                {isOpen && (
-                  <DropDownListContainer>
-                    <DropDownList>
-                      <ListItem style={{ fontWeight: "bold" }}>
-                        Price Low to High
-                      </ListItem>
-                      <ListItem>Price High to Low</ListItem>
-                      <ListItem>Length Small to Big</ListItem>
-                      <ListItem>Length Big to Small</ListItem>
-                    </DropDownList>
-                  </DropDownListContainer>
-                )}
-              </DropDownContainer>
-            </SortContainer>
-            <MoreFilterContainer>
-              <DateValueContainer>
-                <MoreFilterLabel onClick={openFilter}>
-                  {!filter ? "More filters" : "Less filters"}
-                  {!filter ? (
-                    <AddIcon style={{ color: "#6e6868", textAlign: "Right" }} />
-                  ) : (
-                    <RemoveIcon style={{ color: "#6e6868" }} />
+          <div
+            class="row"
+            style={{
+              padding: "0px 10px 0px 10px",
+              borderTop: "1px solid rgba(128, 128, 128, 0.3)",
+            }}
+          >
+            <div class="column1">
+              <SortContainers>
+                <DropDownContainers>
+                  <DropDownHeaders onClick={toggling}>Sort</DropDownHeaders>
+                  {isOpens && (
+                    <DropDownListContainers>
+                      <DropDownLists>
+                        <ListItems>
+                          <Spans>Price Low to High</Spans>
+                        </ListItems>
+                        <ListItems>
+                          <Spans>Price High to Low</Spans>
+                        </ListItems>
+                        <ListItems>
+                          <Spans>Length Small to Big</Spans>
+                        </ListItems>
+                        <ListItems>
+                          <Spans>Length Big to Small</Spans>
+                        </ListItems>
+                      </DropDownLists>
+                    </DropDownListContainers>
                   )}
-                </MoreFilterLabel>
-              </DateValueContainer>
-            </MoreFilterContainer>
-            <SearchContainer>
-              <SearchValueContainer>
-                <Label>Search</Label>
-                <Separator>|</Separator>
-                <Label>152 results</Label>
-              </SearchValueContainer>
-            </SearchContainer>
-            <AddOnContainer>
-              <YachtNameContainer>
-                <Value>
-                  <Label>
-                    Daily{" "}
-                    <CloseIcon
-                      fontSize="small"
-                      style={{
-                        color: "rgba(255,255,255,.3)",
-                      }}
-                    />
-                  </Label>
-                </Value>
-                <Value>
-                  <Label>
-                    Refit{" "}
-                    <CloseIcon
-                      fontSize="small"
-                      style={{
-                        color: "rgba(255,255,255,.3)",
-                      }}
-                    />
-                  </Label>
-                </Value>
-              </YachtNameContainer>
-              <YachtNameContainer>
-                <Value>
-                  <Label>
-                    Built{" "}
-                    <CloseIcon
-                      fontSize="small"
-                      style={{
-                        color: "rgba(255,255,255,.3)",
-                      }}
-                    />
-                  </Label>
-                </Value>
-                <Value>
-                  <Label>
-                    Price{" "}
-                    <CloseIcon
-                      fontSize="small"
-                      style={{
-                        color: "rgba(255,255,255,.3)",
-                      }}
-                    />
-                  </Label>
-                </Value>
-              </YachtNameContainer>
-              <YachtNameContainer>
-                <Value>
-                  <Label>
-                    Indian Ocean
-                    <CloseIcon
-                      fontSize="small"
-                      style={{
-                        color: "rgba(255,255,255,.3)",
-                        cursor: "pointer",
-                      }}
-                    />
-                  </Label>
-                </Value>
-                <Value>
-                  <Label>
-                    Builder{" "}
-                    <CloseIcon
-                      fontSize="small"
-                      style={{
-                        color: "rgba(255,255,255,.3)",
-                        cursor: "pointer",
-                      }}
-                    />
-                  </Label>
-                </Value>
-              </YachtNameContainer>
-              <YachtNameContainer>
-                <Value>
-                  <Label>
-                    Built{" "}
-                    <CloseIcon
-                      fontSize="small"
-                      style={{
-                        color: "rgba(255,255,255,.3)",
-                      }}
-                    />
-                  </Label>
-                </Value>
-                <Null>
-                  <Label></Label>
-                </Null>
-              </YachtNameContainer>
-            </AddOnContainer>
-            <ExtraContainer>
-              <a href="/" style={{ color: "blue" }}>
+                </DropDownContainers>
+              </SortContainers>
+              <MoreFilterContainers>
+                <DateValueContainers>
+                  <MoreFilterLabels onClick={openFilter}>
+                    {!filter ? "More filters" : "Less filters"}
+                    {!filter ? (
+                      <span style={{ paddingLeft: "10px" }}>+</span>
+                    ) : (
+                      <span style={{ paddingLeft: "10px" }}>-</span>
+                    )}
+                  </MoreFilterLabels>
+                </DateValueContainers>
+              </MoreFilterContainers>
+              <SearchContainers>
+                <SearchValueContainers>
+                  <Labels>Search</Labels>
+                  <Separators>|</Separators>
+                  <Labels>152 results</Labels>
+                </SearchValueContainers>
+              </SearchContainers>
+            </div>
+            <div class="column2">
+              <AddOnContainers>
+                <YachtNameContainers>
+                  <Values>
+                    <Labels>
+                      Daily{" "}
+                      <CloseIcon
+                        fontSize="small"
+                        style={{
+                          color: "rgba(255,255,255,.3)",
+                        }}
+                      />
+                    </Labels>
+                  </Values>
+                  <Values>
+                    <Labels>
+                      Refit{" "}
+                      <CloseIcon
+                        fontSize="small"
+                        style={{
+                          color: "rgba(255,255,255,.3)",
+                        }}
+                      />
+                    </Labels>
+                  </Values>
+                </YachtNameContainers>
+                <YachtNameContainers>
+                  <Values>
+                    <Labels>
+                      Built{" "}
+                      <CloseIcon
+                        fontSize="small"
+                        style={{
+                          color: "rgba(255,255,255,.3)",
+                        }}
+                      />
+                    </Labels>
+                  </Values>
+                  <Values>
+                    <Labels>
+                      Price{" "}
+                      <CloseIcon
+                        fontSize="small"
+                        style={{
+                          color: "rgba(255,255,255,.3)",
+                        }}
+                      />
+                    </Labels>
+                  </Values>
+                </YachtNameContainers>
+                <YachtNameContainers>
+                  <Values>
+                    <Labels>
+                      Indian Ocean
+                      <CloseIcon
+                        fontSize="small"
+                        style={{
+                          color: "rgba(255,255,255,.3)",
+                          cursor: "pointer",
+                        }}
+                      />
+                    </Labels>
+                  </Values>
+                  <Values>
+                    <Labels>
+                      Builder{" "}
+                      <CloseIcon
+                        fontSize="small"
+                        style={{
+                          color: "rgba(255,255,255,.3)",
+                          cursor: "pointer",
+                        }}
+                      />
+                    </Labels>
+                  </Values>
+                </YachtNameContainers>
+                <YachtNameContainers>
+                  <Values>
+                    <Labels>
+                      Built{" "}
+                      <CloseIcon
+                        fontSize="small"
+                        style={{
+                          color: "rgba(255,255,255,.3)",
+                        }}
+                      />
+                    </Labels>
+                  </Values>
+                  <Nulls>
+                    <Labels></Labels>
+                  </Nulls>
+                </YachtNameContainers>
+              </AddOnContainers>
+            </div>
+            <div class="column3">
+              <a href="/" style={{ color: "blue", padding: "30px 0px" }}>
                 Clear all
               </a>
-            </ExtraContainer>
-          </Container>
+            </div>
+          </div>
         </>
       ) : (
         <>
-          <DefaultContainer>
-            <FilterContainer>
-              <SortContainer>
-                <DropDownContainer>
-                  <DropDownHeader onClick={toggling}>Sort</DropDownHeader>
-                  {isOpen && (
-                    <DropDownListContainer>
-                      <DropDownList>
-                        <ListItem style={{ fontWeight: "bold" }}>
-                          Price Low to High
-                        </ListItem>
-                        <ListItem>Price High to Low</ListItem>
-                        <ListItem>Length Small to Big</ListItem>
-                        <ListItem>Length Big to Small</ListItem>
-                      </DropDownList>
-                    </DropDownListContainer>
+          <div
+            class="row"
+            style={{
+              padding: "0px 10px 0px 10px",
+              borderTop: "1px solid rgba(128, 128, 128, 0.3)",
+            }}
+          >
+            <div class="column1">
+              <SortContainers>
+                <DropDownContainers>
+                  <DropDownHeaders onClick={toggling}>Sort</DropDownHeaders>
+                  {isOpens && (
+                    <DropDownListContainers>
+                      <DropDownLists>
+                        <ListItems>
+                          <Spans>Price Low to High</Spans>
+                        </ListItems>
+                        <ListItems>
+                          <Spans>Price High to Low</Spans>
+                        </ListItems>
+                        <ListItems>
+                          <Spans>Length Small to Big</Spans>
+                        </ListItems>
+                        <ListItems>
+                          <Spans>Length Big to Small</Spans>
+                        </ListItems>
+                      </DropDownLists>
+                    </DropDownListContainers>
                   )}
-                </DropDownContainer>
-              </SortContainer>
-              <MoreFilterContainer>
-                <DateValueContainer>
-                  <MoreFilterLabel onClick={openFilter}>
+                </DropDownContainers>
+              </SortContainers>
+              <MoreFilterContainers>
+                <DateValueContainers>
+                  <MoreFilterLabels onClick={openFilter}>
                     {!filter ? "More filters" : "Less filters"}
                     {!filter ? (
-                      <AddIcon
-                        style={{ color: "#6e6868", textAlign: "Right" }}
-                      />
+                      <span style={{ paddingLeft: "10px" }}>+</span>
                     ) : (
-                      <RemoveIcon style={{ color: "#6e6868" }} />
+                      <span style={{ paddingLeft: "10px" }}>-</span>
                     )}
-                  </MoreFilterLabel>
-                </DateValueContainer>
-              </MoreFilterContainer>
-              <SearchContainer>
-                <SearchValueContainer>
-                  <Label>Search</Label>
-                  <Separator>|</Separator>
-                  <Label>152 results</Label>
-                </SearchValueContainer>
-              </SearchContainer>
-            </FilterContainer>
-            <CarouselContainer>
-              <div style={{ maxWidth: "1000px" }}>
-                <Carousel show={5}>
-                  <div>
-                    <div
-                      style={{
-                        padding: 8,
-                        marginLeft: "30px",
-                        paddingLeft: "5px",
-                        paddingRight: "5px",
-                      }}
-                    >
-                      <Daily>
-                        Daily <XIcon fontSize="small" style={{ cursor: "pointer"}}></XIcon>
-                      </Daily>
-                    </div>
-                  </div>
-                  <div>
-                    <div
-                      style={{
-                        padding: 8,
-                        marginLeft: "10px",
-                        paddingRight: "10px",
-                        paddingLeft: "10px",
-                      }}
-                    >
-                      <Daily>
-                        Built <XIcon fontSize="small"  style={{ cursor: "pointer"}}></XIcon>
-                      </Daily>
-                    </div>
-                  </div>
-                  <div>
-                    <div
-                      style={{
-                        padding: 8,
-                        width: "120px",
-                        marginRight: "130px",
-                      }}
-                    >
-                      <Daily>
-                        Indian Ocean <XIcon fontSize="small"  style={{ cursor: "pointer"}}></XIcon>
-                      </Daily>
-                    </div>
-                  </div>
-                  <div>
-                    <div style={{ padding: 8, marginLeft: "20px" }}>
-                      <Daily>
-                        Built <XIcon fontSize="small"  style={{ cursor: "pointer"}}></XIcon>
-                      </Daily>
-                    </div>
-                  </div>
-                  <div>
-                    <div
-                      style={{
-                        padding: 8,
-                        width: "120px",
-                        marginRight: "130px",
-                      }}
-                    >
-                      <Daily>
-                        Indian Ocean <XIcon fontSize="small"  style={{ cursor: "pointer"}}></XIcon>
-                      </Daily>
-                    </div>
-                  </div>
-                  <div>
-                    <div style={{ padding: 8, marginLeft: "20px" }}>
-                      <Daily>
-                        Refit <XIcon fontSize="small"  style={{ cursor: "pointer"}}></XIcon>
-                      </Daily>
-                    </div>
-                  </div>
-                  <div>
-                    <div style={{ padding: 8, marginLeft: "20px", cursor: "pointer", }}>
-                      <Daily>
-                        Built <XIcon fontSize="small"  style={{ cursor: "pointer"}}></XIcon>
-                      </Daily>
-                    </div>
-                  </div>
-                  <div>
-                    <div style={{ padding: 8, marginLeft: "20px" }}>
-                      <Daily>
-                        Daily <XIcon fontSize="small"  style={{ cursor: "pointer"}}></XIcon>
-                      </Daily>
-                    </div>
-                  </div>
-                </Carousel>
-              </div>
-            </CarouselContainer>
-            <ExtraContainers>
-              <a href="/" style={{ color: "blue" }}>
-                Clear all
-              </a>
-            </ExtraContainers>
-          </DefaultContainer>
+                  </MoreFilterLabels>
+                </DateValueContainers>
+              </MoreFilterContainers>
+              <SearchContainers>
+                <SearchValueContainers>
+                  <Labels>Search</Labels>
+                  <Separators>|</Separators>
+                  <Labels>152 results</Labels>
+                </SearchValueContainers>
+              </SearchContainers>
+            </div>
+            <div class="column2">
+              <Slider {...settings} style={{ paddingTop: "5px" }}>
+                <div style={{ width: 100 }}>
+                  <Values>
+                    <Labels>
+                      Daily{" "}
+                      <CloseIcon
+                        fontSize="small"
+                        style={{
+                          color: "rgba(255,255,255,.3)",
+                        }}
+                      />
+                    </Labels>
+                  </Values>
+                </div>
+                <div style={{ width: 100 }}>
+                  <Values>
+                    <Labels>
+                      Built{" "}
+                      <CloseIcon
+                        fontSize="small"
+                        style={{
+                          color: "rgba(255,255,255,.3)",
+                        }}
+                      />
+                    </Labels>
+                  </Values>
+                </div>
+                <div style={{ width: 160 }}>
+                  <Values>
+                    <Labels>
+                      Indian Ocean{" "}
+                      <CloseIcon
+                        fontSize="small"
+                        style={{
+                          color: "rgba(255,255,255,.3)",
+                        }}
+                      />
+                    </Labels>
+                  </Values>
+                </div>
+                <div style={{ width: 100 }}>
+                  <Values>
+                    <Labels>
+                      Built{" "}
+                      <CloseIcon
+                        fontSize="small"
+                        style={{
+                          color: "rgba(255,255,255,.3)",
+                        }}
+                      />
+                    </Labels>
+                  </Values>
+                </div>
+                <div style={{ width: 160 }}>
+                  <Values>
+                    <Labels>
+                      Indian Ocean{" "}
+                      <CloseIcon
+                        fontSize="small"
+                        style={{
+                          color: "rgba(255,255,255,.3)",
+                        }}
+                      />
+                    </Labels>
+                  </Values>
+                </div>
+                <div style={{ width: 100 }}>
+                  <Values>
+                    <Labels>
+                      Built{" "}
+                      <CloseIcon
+                        fontSize="small"
+                        style={{
+                          color: "rgba(255,255,255,.3)",
+                        }}
+                      />
+                    </Labels>
+                  </Values>
+                </div>
+                <div style={{ width: 100 }}>
+                  <Values>
+                    <Labels>
+                      Daily{" "}
+                      <CloseIcon
+                        fontSize="small"
+                        style={{
+                          color: "rgba(255,255,255,.3)",
+                        }}
+                      />
+                    </Labels>
+                  </Values>
+                </div>
+                <div style={{ width: 160 }}>
+                  <Values>
+                    <Labels>
+                      Indian Ocean{" "}
+                      <CloseIcon
+                        fontSize="small"
+                        style={{
+                          color: "rgba(255,255,255,.3)",
+                        }}
+                      />
+                    </Labels>
+                  </Values>
+                </div>
+                <div style={{ width: 120 }}>
+                  <Values>
+                    <Labels>
+                      Refit{" "}
+                      <CloseIcon
+                        fontSize="small"
+                        style={{
+                          color: "rgba(255,255,255,.3)",
+                        }}
+                      />
+                    </Labels>
+                  </Values>
+                </div>
+              </Slider>
+            </div>
+            <div class="column3">
+             <a href="/" style={{color: "blue", padding: "30px 0px"}}>Clear all</a>
+            </div>
+          </div>
         </>
       )}
     </>

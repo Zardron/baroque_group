@@ -23,15 +23,15 @@ const Span = styled.span`
 `;
 
 const Search = styled.input`
-width: 170px;
+  width: 170px;
   text-align: left;
-  font: normal normal normal 12px/24px Quicksand;
+  font: normal normal normal 14px/24px Quicksand;
   letter-spacing: 0.7px;
   color: white;
   padding: 8px 60px 8px 20px;
   background-color: #768a9a;
   border: 0.800000011920929px solid #e4e4e4;
-  border-radius: 18px;
+  border-radius: 20px;
 
   cursor: pointer;
 
@@ -41,7 +41,7 @@ width: 170px;
     opacity: 1; /* Firefox */
   }
 
-  :focus{
+  :focus {
     outline: none;
   }
 `;
@@ -62,14 +62,16 @@ const Subscribe = styled.span`
   cursor: pointer;
 `;
 
-const Image = styled(NewspaperIcon)`
-  text-align: left;
-  font: normal normal medium 12px/24px Quicksand;
-  letter-spacing: 0.8px;
-  color: #768a9a;
+const Image = styled.img`
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+`;
 
-  background: #f6f9fb 0% 0% no-repeat padding-box;
-  border-radius: 24px;
+const Separator = styled.span`
+  padding-left: 10px;
+  padding-right: 20px;
+  color: rgba(255, 255, 255, 0.3);
 `;
 
 const Newsletter = () => {
@@ -79,76 +81,82 @@ const Newsletter = () => {
 
   return (
     <Container>
-      <Data>
-        <Span>Interested in:</Span>
-        <div style={{ fontFamily: "system-ui", paddingLeft: "10px" }}>
-          <label>
-            <Checkbox checked={checked} onChange={() => setChecked(!checked)} />
-            <span
-              style={{
-                marginLeft: 8,
-                font: "normal normal normal 12px/24px Quicksand",
-                color: "#ffffff",
-              }}
-            >
-              Chartering a yacht
-            </span>
-          </label>
-        </div>
+      <div className="container">
+        <Data>
+          <Span>Interested in:</Span>
+          <div style={{ fontFamily: "system-ui", paddingLeft: "10px" }}>
+            <label>
+              <Checkbox
+                checked={checked}
+                onChange={() => setChecked(!checked)}
+              />
+              <span
+                style={{
+                  marginLeft: 8,
+                  font: "normal normal normal 14px/24px Quicksand",
+                  color: "#ffffff",
+                }}
+              >
+                Chartering a yacht
+              </span>
+            </label>
+          </div>
 
-        <div
-          style={{
-            fontFamily: "system-ui",
-            paddingLeft: "10px",
-            cursor: "pointer",
-          }}
-        >
-          <label>
-            <Checkbox2
-              checkedA={checkedA}
-              onChange={() => setCheckedA(!checkedA)}
-            />
-            <span
-              style={{
-                marginLeft: 8,
-                font: "normal normal normal 12px/24px Quicksand",
-                color: "#ffffff",
-              }}
-            >
-              Buying a yacht
-            </span>
-          </label>
-        </div>
+          <div
+            style={{
+              fontFamily: "system-ui",
+              paddingLeft: "10px",
+              cursor: "pointer",
+            }}
+          >
+            <label>
+              <Checkbox2
+                checkedA={checkedA}
+                onChange={() => setCheckedA(!checkedA)}
+              />
+              <span
+                style={{
+                  marginLeft: 8,
+                  font: "normal normal normal 14px/24px Quicksand",
+                  color: "#ffffff",
+                }}
+              >
+                Buying a yacht
+              </span>
+            </label>
+          </div>
 
-        <div
-          style={{
-            fontFamily: "system-ui",
-            padding: "0 10px",
-            cursor: "pointer",
-          }}
-        >
-          <label>
-            <Checkbox3
-              checkedB={checkedB}
-              onChange={() => setCheckedB(!checkedB)}
-            />
-            <span
-              style={{
-                marginLeft: 8,
-                font: "normal normal normal 12px/24px Quicksand",
-                color: "#ffffff",
-              }}
-            >
-              General updates
-            </span>
-          </label>
-        </div>
-
-        <Search type="text" placeholder="Enter your email address"></Search>
-        <Subscribe>
-          Subscribe <Image />
-        </Subscribe>
-      </Data>
+          <div
+            style={{
+              fontFamily: "system-ui",
+              padding: "0 10px",
+              cursor: "pointer",
+            }}
+          >
+            <label>
+              <Checkbox3
+                checkedB={checkedB}
+                onChange={() => setCheckedB(!checkedB)}
+              />
+              <span
+                style={{
+                  marginLeft: 8,
+                  font: "normal normal normal 14px/24px Quicksand",
+                  color: "#ffffff",
+                }}
+              >
+                General updates
+              </span>
+            </label>
+          </div>
+          <Separator>|</Separator>
+          <Search type="text" placeholder="Enter your email address"></Search>
+          <Subscribe>
+            Subscribe{" "}
+            <Image src="https://res.cloudinary.com/dmbpo49ak/image/upload/v1666278711/Baroque/1_rz6ad9.png" />
+          </Subscribe>
+        </Data>
+      </div>
     </Container>
   );
 };
