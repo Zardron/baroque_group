@@ -94,7 +94,6 @@ const Footer = () => {
             6203
           </ContactItem>
           <ContactItem style={{ cursor: "pointer" }}>
-            z
             <EmailOutlinedIcon style={{ paddingRight: "10px" }} />{" "}
             info@baroqueyachts.com
           </ContactItem>
