@@ -8,6 +8,8 @@ import Checkbox2 from "./Checkbox2";
 const Container = styled.div`
   padding: 20px 10px;
   background-color: #768a9a;
+  align-items: center;
+  display: flex;
 `;
 
 const Data = styled.div`

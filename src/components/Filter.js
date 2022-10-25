@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import LeftArrow from "../assets/left-arrow.svg";
 import RightArrow from "../assets/right-arrow.svg";
 import CloseIcon from "@mui/icons-material/Close";
+import Datepicker from "./datepicker/Datepicker";
 
 const Container = styled.div`
   display: flex;
@@ -638,6 +639,12 @@ const Filter = () => {
   const [isGuest, setIsGuest] = useState(false);
   const [isYacht, setIsYacht] = useState(false);
   const [checked, setChecked] = useState(true);
+  
+  let startDate = "";
+  let endDate = "";
+
+  console.log(startDate);
+  console.log(endDate);
 
   const [isFilter, setIsFilter] = useState(false);
   const [isYachts, setIsYachts] = useState(false);
@@ -966,7 +973,7 @@ const Filter = () => {
                   <DateDropDownList>
                     <DateLabel>Flexible dates</DateLabel>
                     <DateDownHeader>5 days before and after</DateDownHeader>
-                    <img src="https://res.cloudinary.com/dmbpo49ak/image/upload/v1666321905/Baroque/date_uok1vf.png" />
+                    <Datepicker startDates={startDate} endDates={endDate} />
                   </DateDropDownList>
                 </DateDropDownListContainer>
               )}
